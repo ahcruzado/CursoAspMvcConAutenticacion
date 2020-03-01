@@ -56,6 +56,9 @@ namespace CursoAspMvcConAutenticacion.Controllers
             return View();
         }
 
-
+        public ActionResult MiAction()
+        {
+            return View();
+        }
     }
 }
