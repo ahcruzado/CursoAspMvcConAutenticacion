@@ -1,31 +1,24 @@
-﻿@model List<CursoAspMvcConAutenticacion.Models.Pelicula>
-@{
+﻿@{
     ViewBag.Title = "Contact";
-    var miVariable = "un valor";
+    Layout = null;
 }
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+<h3>@ViewData["MiMensaje"]</h3>
 
-<div>
-    Mostrando @Model.Count() películas
-</div>
+<address>
+    One Microsoft Way<br />
+    Redmond, WA 98052-6399<br />
+    <abbr title="Phone">P:</abbr>
+    425.555.0100
+</address>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Título</th>
-            <th>Géneto</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model)
-        {
-            @*Se coloca la clase dager si la pelicula no está en carterera*@
-            var claseFila = (!p.EstaEnCartera) ? "danger" :string.Empty;
+<address>
+    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>
 
-            <tr class="@claseFila">
-
-                <td>@Html.Raw(p.Titulo)</td>
-                <td>@p.Genero</td>            
-            </tr>
-        }
-    </tbody>
-</table>
+@*<form action="/home/contact" method="post">
+    <input type="number" name="edad" id="edad" value="@ViewBag.Edad" />
+    <input type="submit" value="Enviar"/>
+</form>*@

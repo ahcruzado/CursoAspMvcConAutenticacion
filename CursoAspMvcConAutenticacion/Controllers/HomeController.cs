@@ -20,13 +20,14 @@ namespace CursoAspMvcConAutenticacion.Controllers
             return View();
         }
 
-        public ActionResult About(int edad)
+        public ActionResult About()
         {
-            ViewBag.Message = "Your application description page." + edad.ToString();
+            ViewBag.Message = "Your application description page.";
 
             return View();
         }
         
+        [ChildActionOnly]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
