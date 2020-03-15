@@ -19,7 +19,7 @@ namespace CursoAspMvcConAutenticacion
                 },
                 new Models.Pelicula()
                 {
-                    Titulo= "Mechanic: Resurrection",
+                    Titulo= "<b>Mechanic: Resurrection</b>",
                     EstaEnCartera=true,
                     Genero = "Acción"
                 },
