@@ -17,6 +17,14 @@ namespace CursoAspMvcConAutenticacion.Controllers
 
         public ActionResult Index()
         {
+            var persna = new Persona()
+            {
+                Nombre = "Claudia",
+                Edad = 35,
+                Empleado=true,
+                Nacimiento=new DateTime(2015,01,23)
+            };
+            ViewBag.Propiedad = persna;
             return View();
         }
 
@@ -34,6 +42,15 @@ namespace CursoAspMvcConAutenticacion.Controllers
             var model = peliculasRepository.ObtenerPeliculas();
             return View(model);
         }
+
+    }
+
+    public class Persona
+    {
+        public string Nombre { get; set; }
+        public int Edad { get; set; }
+        public bool Empleado { get; set; }
+        public DateTime Nacimiento { get; set; }
 
     }
 }
