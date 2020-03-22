@@ -2,5 +2,6 @@
     ViewBag.Title = "Home Page";
 }
 
-@Html.Display("Propiedad")
-@Html.Editor("Propiedad")
+<br/>
+<label>Escoja una opción</label>
+@Html.DropDownList("miDropDownList", (IEnumerable<SelectListItem>)ViewBag.MiListado)

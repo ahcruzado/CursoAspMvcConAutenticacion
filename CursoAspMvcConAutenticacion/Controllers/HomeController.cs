@@ -17,15 +17,31 @@ namespace CursoAspMvcConAutenticacion.Controllers
 
         public ActionResult Index()
         {
-            var persna = new Persona()
-            {
-                Nombre = "Claudia",
-                Edad = 35,
-                Empleado=true,
-                Nacimiento=new DateTime(2015,01,23)
-            };
-            ViewBag.Propiedad = persna;
+            ViewBag.MiListado=ObtenerListado();
             return View();
+        }
+
+        public List<SelectListItem> ObtenerListado()
+        {
+            var listado = new List<SelectListItem>()
+            {
+                new SelectListItem()
+                {
+                    Text= "Sí",
+                    Value="1"
+                },
+                new SelectListItem()
+                {
+                    Text= "No",
+                    Value="2"
+                },
+                new SelectListItem()
+                {
+                    Text= "Quizás",
+                    Value="3"
+                }
+            };
+            return listado;
         }
 
         public ActionResult About()
