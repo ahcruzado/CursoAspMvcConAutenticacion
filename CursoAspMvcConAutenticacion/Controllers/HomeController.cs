@@ -18,7 +18,38 @@ namespace CursoAspMvcConAutenticacion.Controllers
         public ActionResult Index()
         {
             ViewBag.MiListado=ObtenerListado();
+            ViewBag.MiListadoEnum = ToListSelectItems<Models.ResultadoOperacion>();
             return View();
+        }
+
+        private List<SelectListItem> ToListSelectItems<T>()
+        {
+            var t = typeof(T);
+
+            if (!t.IsEnum) { throw new ApplicationException("La culpa es de Cabeza"); }
+
+            var members = t.GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+            var resut = new List<SelectListItem>();
+
+            foreach (var member in members)
+            {
+                var attributeDescription = member.GetCustomAttributes(typeof(System.ComponentModel.DescriptionAttribute), false);
+                var descripcion = member.Name;
+
+                if (attributeDescription.Any())
+                {
+                    descripcion = ((System.ComponentModel.DescriptionAttribute)attributeDescription[0]).Description;
+                }
+
+                var valor = ((int)Enum.Parse(t, member.Name));
+                resut.Add(new SelectListItem()
+                {
+                    Text = descripcion,
+                    Value = valor.ToString()
+                });
+            }
+
+            return resut;
         }
 
         public List<SelectListItem> ObtenerListado()
