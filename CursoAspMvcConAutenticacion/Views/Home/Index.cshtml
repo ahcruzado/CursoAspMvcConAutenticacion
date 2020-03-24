@@ -1,7 +1,40 @@
-﻿﻿@{
+﻿@model CursoAspMvcConAutenticacion.Controllers.Persona
+﻿@{
     ViewBag.Title = "Home Page";
 }
+<h4>
+    @ViewBag.Message
+</h4>
+@using (Html.BeginForm())
+{
+    @*@Html.EditorForModel()*@
 
-<br/>
-<label>Escoja una opción</label>
-@Html.DropDownList("miDropDownList", (List<SelectListItem>)ViewBag.MiListadoEnum)
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nombre)
+        @Html.EditorFor(m => m.Nombre)
+        @Html.ValidationMessageFor(m => m.Nombre, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Edad)
+        @Html.EditorFor(m => m.Edad)
+        @Html.ValidationMessageFor(m => m.Edad, null, new { @class = "text-danger" })
+    </div>
+
+
+    <input type="submit" value="Enviar" />
+}
+
+
+@*
+    <div>
+        @Html.LabelFor(m => m.Nombre)
+        @Html.EditorFor(m => m.Nombre)
+        @Html.ValidationMessageFor(m => m.Nombre, null, new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Edad)
+        @Html.EditorFor(m => m.Edad)
+    </div>
+*@
