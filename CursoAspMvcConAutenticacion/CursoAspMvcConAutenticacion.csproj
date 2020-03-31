@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PeliculasController.cs" />
     <Compile Include="Controllers\Persona.cs" />
     <Compile Include="DAL\PeliculasRepository.cs" />
     <Compile Include="Global.asax.cs">
@@ -252,6 +253,11 @@
     <Content Include="Views\Home\DisplayTemplates\Persona.cshtml" />
     <Content Include="Views\Home\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\_ListadoPersonas.cshtml" />
+    <Content Include="Views\Peliculas\Create.cshtml" />
+    <Content Include="Views\Peliculas\Delete.cshtml" />
+    <Content Include="Views\Peliculas\Details.cshtml" />
+    <Content Include="Views\Peliculas\Edit.cshtml" />
+    <Content Include="Views\Peliculas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

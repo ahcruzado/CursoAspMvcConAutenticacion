@@ -29,5 +29,7 @@ namespace CursoAspMvcConAutenticacion.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<CursoAspMvcConAutenticacion.Models.Pelicula> Peliculas { get; set; }
     }
 }
