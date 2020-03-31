@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,7 +10,10 @@ namespace CursoAspMvcConAutenticacion.Controllers
     {        
         [HttpGet]
         public ActionResult Index()
-        {            
+        {
+            List<Persona> personas = GetListadoPersonas();
+            ViewBag.MiListado = personas;
+
             return View();
         }
 
@@ -24,7 +26,10 @@ namespace CursoAspMvcConAutenticacion.Controllers
         
 
         public ActionResult About()
-        {
+        {            
+            List<Persona> personas = GetListadoPersonas();
+            ViewBag.MiListado = personas;
+
             ViewBag.Message = "Your application description page.";
 
             return View();
@@ -34,16 +39,17 @@ namespace CursoAspMvcConAutenticacion.Controllers
         {
             return View();
         }
-       
-    }
 
-    public class Persona
-    {
-        [Required(AllowEmptyStrings =false)]
-        public string Nombre { get; set; }
+        private static List<Persona> GetListadoPersonas()
+        {
+            return new List<Persona>()
+            {
+                new Persona(){ Nombre= "Marcela", Edad=18},
+                new Persona(){ Nombre= "Henry", Edad=40},
+                new Persona(){ Nombre= "Daniela", Edad=27}
+            };
+        }
 
-        [Range(1,99)]
-        public int Edad { get; set; }
     }
 
 
