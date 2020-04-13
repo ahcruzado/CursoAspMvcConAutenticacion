@@ -10,6 +10,7 @@ namespace CursoAspMvcConAutenticacion.Models
     {
         public int Id { get; set;}
 
+        [Required(AllowEmptyStrings =false)]
         public string Titulo { get; set; }
 
         public bool EstaEnCartera { get; set; }
